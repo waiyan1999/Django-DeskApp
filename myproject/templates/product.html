@@ -1,0 +1,269 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Product {% endblock title %}
+
+{% block content %}
+
+	<div class="main-container">
+		<div class="pd-ltr-20 xs-pd-20-10">
+			<div class="min-height-200px">
+				<div class="page-header">
+					<div class="row">
+						<div class="col-md-12 col-sm-12">
+							<div class="title">
+								<h4>Product</h4>
+							</div>
+							<nav aria-label="breadcrumb" role="navigation">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Product</li>
+									
+
+								</ol>
+							</nav>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="product-wrap">
+					<div class="product-list">
+						<a href="" class="btn btn-primary">Upload Product</a> <br><br>
+						
+						<div>
+							<div class="pd-20 card-box height-100-p">
+							<h5 class="h4">Large modal</h5>
+							
+							
+							<a href="" class="btn-block" data-toggle="modal" data-target="#bd-example-modal-lg" type="button">
+							{% comment %}	<img src="vendors/images/modal-img1.jpg" alt="modal"> {% endcomment %}
+							<p class="btn btn-primary">Upload Product</p>
+							</a>
+							
+
+							<div class="modal fade bs-example-modal-lg" id="bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+								<div class="modal-dialog modal-lg modal-dialog-centered">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h4 class="modal-title" id="myLargeModalLabel">Upload New Product</h4>
+											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+										</div>
+
+										<div class="modal-body">
+											
+											<form action="" method="post" enctype="multipart/form-data">
+
+												{% csrf_token %}
+
+												{{ fm }}
+
+												<br>
+										
+
+												<input type="submit" name="" id="" value="Upload Product" class="form-control btn btn-success">
+
+											</form>
+											
+										</div>
+
+										{% comment %}
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+											<button type="button" class="btn btn-primary">Save changes</button>
+										</div>
+										{% endcomment %}
+
+										
+
+
+									</div>
+								</div>
+							</div>
+						</div>
+						</div>
+
+						<ul class="row">
+
+							{% for i in p_obj %}
+							<li class="col-lg-4 col-md-6 col-sm-12">
+								<div class="product-box">
+									<div class="producct-img"><img src="{{ i.p_photo.url }}" alt=""></div>
+									<div class="product-caption">
+										<h4><a href="#"> {{ i.p_name }} </a></h4>
+										<div class="price">
+											<del>$55.5</del><ins>{{ i.p_price }}</ins>
+										</div>
+										<a href="{% url 'productdetail' i.id  %}" class="btn btn-outline-primary">Read More</a>
+									</div>
+								</div>
+							</li>
+
+							{% endfor %}
+
+							{% comment %}
+
+							<li class="col-lg-4 col-md-6 col-sm-12">
+								<div class="product-box">
+									<div class="producct-img"><img src="vendors/images/product-img2.jpg" alt=""></div>
+									<div class="product-caption">
+										<h4><a href="#">Gufram Bounce White</a></h4>
+										<div class="price">
+											<del>$75.5</del><ins>$50</ins>
+										</div>
+										<a href="#" class="btn btn-outline-primary">Add To Cart</a>
+									</div>
+								</div>
+							</li>
+							<li class="col-lg-4 col-md-6 col-sm-12">
+								<div class="product-box">
+									<div class="producct-img"><img src="vendors/images/product-img3.jpg" alt=""></div>
+									<div class="product-caption">
+										<h4><a href="#">Contrast Lace-Up Sneakers</a></h4>
+										<div class="price">
+											<ins>$80</ins>
+										</div>
+										<a href="#" class="btn btn-outline-primary">Add To Cart</a>
+									</div>
+								</div>
+							</li>
+							<li class="col-lg-4 col-md-6 col-sm-12">
+								<div class="product-box">
+									<div class="producct-img"><img src="vendors/images/product-img4.jpg" alt=""></div>
+									<div class="product-caption">
+										<h4><a href="#">Apple Watch Series 3</a></h4>
+										<div class="price">
+											<ins>$380</ins>
+										</div>
+										<a href="#" class="btn btn-outline-primary">Read More</a>
+									</div>
+								</div>
+							</li>
+
+							<li class="col-lg-4 col-md-6 col-sm-12">
+								<div class="product-box">
+									<div class="producct-img"><img src="vendors/images/product-img2.jpg" alt=""></div>
+									<div class="product-caption">
+										<h4><a href="#">Gufram Bounce White</a></h4>
+										<div class="price">
+											<del>$75.5</del><ins>$50</ins>
+										</div>
+										<a href="#" class="btn btn-outline-primary">Add To Cart</a>
+									</div>
+								</div>
+							</li>
+							<li class="col-lg-4 col-md-6 col-sm-12">
+								<div class="product-box">
+									<div class="producct-img"><img src="vendors/images/product-img4.jpg" alt=""></div>
+									<div class="product-caption">
+										<h4><a href="#">Apple Watch Series 3</a></h4>
+										<div class="price">
+											<ins>$380</ins>
+										</div>
+										<a href="#" class="btn btn-outline-primary">Read More</a>
+									</div>
+								</div>
+							</li>
+							<li class="col-lg-4 col-md-6 col-sm-12">
+								<div class="product-box">
+									<div class="producct-img"><img src="vendors/images/product-img1.jpg" alt=""></div>
+									<div class="product-caption">
+										<h4><a href="#">Gufram Bounce Black</a></h4>
+										<div class="price">
+											<del>$55.5</del><ins>$49.5</ins>
+										</div>
+										<a href="#" class="btn btn-outline-primary">Read More</a>
+									</div>
+								</div>
+							</li>
+							<li class="col-lg-4 col-md-6 col-sm-12">
+								<div class="product-box">
+									<div class="producct-img"><img src="vendors/images/product-img3.jpg" alt=""></div>
+									<div class="product-caption">
+										<h4><a href="#">Contrast Lace-Up Sneakers</a></h4>
+										<div class="price">
+											<ins>$80</ins>
+										</div>
+										<a href="#" class="btn btn-outline-primary">Add To Cart</a>
+									</div>
+								</div>
+							</li>
+
+							<li class="col-lg-4 col-md-6 col-sm-12">
+								<div class="product-box">
+									<div class="producct-img"><img src="vendors/images/product-img1.jpg" alt=""></div>
+									<div class="product-caption">
+										<h4><a href="#">Gufram Bounce Black</a></h4>
+										<div class="price">
+											<del>$55.5</del><ins>$49.5</ins>
+										</div>
+										<a href="#" class="btn btn-outline-primary">Read More</a>
+									</div>
+								</div>
+							</li>
+							
+
+
+							<li class="col-lg-4 col-md-6 col-sm-12">
+								<div class="product-box">
+									<div class="producct-img"><img src="vendors/images/product-img2.jpg" alt=""></div>
+									<div class="product-caption">
+										<h4><a href="#">Gufram Bounce White</a></h4>
+										<div class="price">
+											<del>$75.5</del><ins>$50</ins>
+										</div>
+										<a href="#" class="btn btn-outline-primary">Add To Cart</a>
+									</div>
+								</div>
+							</li>
+							<li class="col-lg-4 col-md-6 col-sm-12">
+								<div class="product-box">
+									<div class="producct-img"><img src="vendors/images/product-img3.jpg" alt=""></div>
+									<div class="product-caption">
+										<h4><a href="#">Contrast Lace-Up Sneakers</a></h4>
+										<div class="price">
+											<ins>$80</ins>
+										</div>
+										<a href="#" class="btn btn-outline-primary">Add To Cart</a>
+									</div>
+								</div>
+							</li>
+							<li class="col-lg-4 col-md-6 col-sm-12">
+								<div class="product-box">
+									<div class="producct-img"><img src="vendors/images/product-img4.jpg" alt=""></div>
+									<div class="product-caption">
+										<h4><a href="#">Apple Watch Series 3</a></h4>
+										<div class="price">
+											<ins>$380</ins>
+										</div>
+										<a href="#" class="btn btn-outline-primary">Read More</a>
+									</div>
+								</div>
+							</li>
+
+							{% endcomment %}
+
+						</ul>
+					</div>
+					<div class="blog-pagination mb-30">
+						<div class="btn-toolbar justify-content-center mb-15">
+							<div class="btn-group">
+								<a href="#" class="btn btn-outline-primary prev"><i class="fa fa-angle-double-left"></i></a>
+								<a href="#" class="btn btn-outline-primary">1</a>
+								<a href="#" class="btn btn-outline-primary">2</a>
+								<span class="btn btn-primary current">3</span>
+								<a href="#" class="btn btn-outline-primary">4</a>
+								<a href="#" class="btn btn-outline-primary">5</a>
+								<a href="#" class="btn btn-outline-primary next"><i class="fa fa-angle-double-right"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer-wrap pd-20 mb-20 card-box">
+				DeskApp - Bootstrap 4 Admin Template By <a href="https://github.com/dropways" target="_blank">Ankit Hingarajiya</a>
+			</div>
+		</div>
+	</div>
+
+{% endblock content %}
+	
